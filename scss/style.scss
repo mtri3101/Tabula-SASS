@@ -1,0 +1,535 @@
+@import "./base/base.scss";
+@import "./abstract/variable.scss";
+@import "./abstract/keyframe.scss";
+@import "./abstract/mixin.scss";
+
+body {
+  position: relative;
+}
+// Header
+.header {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .header-logo {
+      @media screen and (max-width: 1200px) {
+        display: flex;
+        align-items: center;
+      }
+      .fa-bars {
+        display: none;
+        font-size: $text-xl;
+        @media screen and (max-width: 1200px) {
+          display: inline-block;
+          margin-right: 20px;
+        }
+      }
+      a {
+        img {
+          width: 50%;
+          display: inline-block;
+        }
+      }
+    }
+    .header-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @media screen and (max-width: 1200px) {
+        display: none;
+      }
+      .header-nav {
+        a {
+          margin: 0 25px;
+          color: $text-c1-dark;
+          font-weight: $text-semibold;
+          font-size: $text-xs;
+          transition: all 0.5s;
+          &:hover {
+            color: $text-c1-primary;
+          }
+        }
+      }
+      .header-contact {
+        .call {
+          margin: 0 20px 0 25px;
+          border: 1px solid #b61984;
+          color: $text-c1-light;
+          background-color: #b61984;
+          border-radius: 50px;
+          padding: 10px 15px;
+          transition: all 0.5s;
+          display: inline-block;
+          box-shadow: 0 0 0 50px #b61984 inset;
+          -webkit-box-shadow: 0 0 0 50px #b61984 inset;
+          &:hover {
+            color: $text-c1-primary;
+            background-color: #fff;
+            -webkit-box-shadow: 0 0 0 1px #b61984 inset;
+            box-shadow: 0 0 0 1px #b61984 inset;
+          }
+        }
+        a {
+          color: $text-c1-dark;
+          i {
+            margin: 0 3px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Carousel
+.carousel {
+  background-image: url(../images/yellow_top_wave_01.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100%;
+  padding: 60px 0;
+  position: relative;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media screen and(max-width:992px) {
+      display: block;
+    }
+    .title {
+      h3 {
+        @include text($text-h3-carousel, $text-semibold, $text-c1-primary);
+        margin-bottom: 8.25px;
+        @media screen and(max-width:1200px) {
+          @include text($text-base, $text-semibold, $text-c1-primary);
+        }
+      }
+      h2 {
+        @include text($text-h2-carousel, $text-bold, $text-c1-dark);
+        @media screen and(max-width:1200px) {
+          @include text($text-3xl, $text-bold, $text-c1-dark);
+        }
+      }
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+  .carousel-background {
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 15px;
+      img {
+        position: absolute;
+        bottom: 0;
+        max-width: 100%;
+        left: 0%;
+      }
+    }
+  }
+}
+
+//Team
+.team {
+  background-color: $bg-c2-primary;
+  padding: 30px 0;
+  position: relative;
+  .container {
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      .col {
+        width: 25%;
+        position: relative;
+        z-index: 10;
+        padding: 20px;
+        @media screen and(max-width:992px) {
+          width: 50%;
+        }
+        @media screen and(max-width:500px) {
+          width: 100%;
+        }
+        .card {
+          background-color: #fff;
+          border-radius: 10px;
+          overflow: hidden;
+          transition: all 0.5s;
+          height: 100%;
+          &:hover {
+            -webkit-box-shadow: 0 30px 30px -10px rgb(0 0 0 / 20%);
+            box-shadow: 0 30px 30px -10px rgb(0 0 0 / 20%);
+          }
+          img {
+            max-width: 100%;
+            border-radius: 10px 10px 0 0;
+            transition: transform 0.3s linear;
+
+            &:hover {
+              transform: scale(1.05);
+            }
+          }
+          .card-body {
+            padding: 30px 15px;
+            text-align: center;
+            h2 {
+              margin-bottom: 10px;
+              @include text($text-xs, $text-semibold, $text-c1-primary);
+            }
+            h1 {
+              margin-bottom: 10px;
+              @include text($text-xl, $text-bold, $text-c1-dark);
+            }
+            p {
+              line-height: 27px;
+              @include text($text-base, $text-regular, $text-c1-dark);
+              display: inline-block;
+            }
+          }
+        }
+        @for $i from 0 through 3 {
+          .item-#{$i + 1} {
+            animation: fadeIn (1s * $i + 1);
+          }
+        }
+      }
+    }
+  }
+  .team-background {
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 15px;
+      img {
+        position: absolute;
+        bottom: 0;
+        z-index: 3;
+        max-width: 100%;
+        left: 0%;
+      }
+    }
+  }
+}
+
+//course
+.course {
+  padding: 60px 0;
+  position: relative;
+  .container {
+    display: flex;
+    padding: 25px;
+    @media screen and (max-width: 992px) {
+      display: block;
+    }
+    img {
+      max-width: 100%;
+    }
+    form {
+      background-color: $bg-light;
+      max-width: 70%;
+      -webkit-box-shadow: 0 30px 30px -10px rgb(0 0 0 / 20%);
+      box-shadow: 0 30px 30px -10px rgb(0 0 0 / 20%);
+      font-weight: $text-bold;
+      @media screen and (max-width: 1200px) {
+        max-width: 100%;
+      }
+      .inner {
+        padding: 25px;
+        h2 {
+          text-align: center;
+          @include text($text-form-title, $text-bold, $text-c1-dark);
+          @media screen and (max-width: 992px) {
+            text-align: left;
+          }
+        }
+        .inform {
+          display: flex;
+          margin: 30px 0 15px;
+          justify-content: space-between;
+          @media screen and (max-width: 768px) {
+            display: block;
+          }
+          div {
+            position: relative;
+            @media screen and (max-width: 992px) {
+              width: 100%;
+            }
+            input {
+              padding: 12px 12px 12px 42px;
+              border-radius: 50px;
+              width: 100%;
+              display: inline-block;
+              font-size: $text-xs;
+              outline: none;
+              border: 1px solid $bd-c1-primary;
+              &:focus {
+                box-shadow: 0 0 4px 0 rgb(0 0 0 / 10%);
+                border: 1px solid $bd-c3-primary;
+              }
+              margin-right: 20px;
+            }
+            i {
+              position: absolute;
+              top: 13px;
+              left: 13px;
+              color: $text-c1-primary;
+            }
+          }
+          .input-email {
+            padding-left: 15px;
+            @media screen and (max-width: 768px) {
+              padding-left: 0;
+              margin-top: 15px;
+            }
+            input {
+              width: 100%;
+            }
+            i {
+              left: 28px;
+              @media screen and (max-width: 768px) {
+                left: 13px;
+              }
+            }
+          }
+          .text-name {
+            padding-right: 15px;
+          }
+        }
+        .course-select {
+          position: relative;
+          select {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 12px 12px 12px 42px;
+            border-radius: 50px;
+            //Xoa mui ten default
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            text-indent: 1px;
+            border: 1px solid $bd-c1-primary;
+            outline: none;
+            &:focus {
+              box-shadow: 0 0 4px 0 rgb(0 0 0 / 10%);
+              border: 1px solid $bd-c3-primary;
+            }
+            option {
+            }
+          }
+          .fa-graduation-cap {
+            position: absolute;
+            top: 13px;
+            left: 13px;
+            color: $text-c1-primary;
+          }
+          .fa-angle-down {
+            position: absolute;
+            top: 13px;
+            right: 20px;
+            color: $text-c1-primary;
+          }
+        }
+        .course-textarea {
+          position: relative;
+          width: 100%;
+          textarea {
+            width: 100%;
+            border-radius: 15px;
+            padding: 12px 12px 12px 42px;
+            border: 1px solid $bd-c1-primary;
+            outline: none;
+            &:focus {
+              box-shadow: 0 0 4px 0 rgb(0 0 0 / 10%);
+              border: 1px solid $bd-c3-primary;
+            }
+          }
+          i {
+            position: absolute;
+            top: 13px;
+            left: 13px;
+            color: $text-c1-primary;
+          }
+        }
+        button {
+          margin-top: 45px;
+          box-shadow: 0 0 0 50px #b61984 inset;
+          -webkit-box-shadow: 0 0 0 50px #b61984 inset;
+          transition: all 0.3s;
+          @include button(
+            $text-xs,
+            $text-semibold,
+            $text-c1-light,
+            $bg-c1-primary,
+            15px 50px,
+            1px solid $bg-c1-primary,
+            50px
+          );
+          &:hover {
+            color: $bg-c1-primary;
+            background-color: #fff;
+            -webkit-box-shadow: 0 0 0 1px #b61984 inset;
+            box-shadow: 0 0 0 1px #b61984 inset;
+          }
+        }
+      }
+    }
+  }
+  .course-background {
+    .container {
+      max-width: 1280px;
+      img {
+        position: absolute;
+        bottom: 0%;
+        z-index: -5;
+        max-width: 100%;
+        left: 0%;
+      }
+    }
+  }
+}
+
+// footer
+.footer {
+  background-image: url(../images/footer_background.jpg);
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  position: relative;
+  padding: 60px 0 120px;
+  .container {
+    .row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      @media screen and (max-width: 480px) {
+        display: block;
+      }
+      .col {
+        h2 {
+          font-size: $text-xl;
+          font-weight: $text-bold;
+          color: $text-c1-light;
+          margin-bottom: 20px;
+        }
+        p {
+          margin-bottom: 15px;
+          font-size: $text-xs;
+          font-weight: $text-regular;
+          color: $text-c1-light;
+        }
+        .contact {
+          i {
+            margin-right: 20px;
+            color: $text-c1-light;
+          }
+        }
+      }
+      .item-1 {
+        @media screen and (max-width: 992px) {
+          width: 50%;
+          margin-bottom: 50px;
+          padding-right: 20px;
+        }
+        @media screen and (max-width: 480px) {
+          width: 100%;
+        }
+      }
+      .item-2 {
+        @media screen and (max-width: 992px) {
+          width: 50%;
+          margin-bottom: 50px;
+        }
+        @media screen and (max-width: 480px) {
+          width: 100%;
+        }
+        p {
+          border-bottom: 1px solid $bd-c1-primary;
+          padding-bottom: 10px;
+          width: 50%;
+          @media screen and (max-width: 992px) {
+            width: 25%;
+          }
+        }
+        
+      }
+      .item-3 {
+        @media screen and (max-width: 992px) {
+          width: 50%;
+          padding-right: 20px;
+        }
+        @media screen and (max-width: 480px) {
+          width: 100%;
+        }
+        p {
+          border-bottom: 1px solid $bd-c1-primary;
+          padding-bottom: 10px;
+          width: 50%;
+          @media screen and (max-width: 992px) {
+           min-width: 80px
+          }
+        }
+      }
+      .subcribe {
+        text-align: center;
+        @media screen and (max-width: 992px) {
+          width: 50%;
+          text-align: left;
+        }
+        @media screen and (max-width: 480px) {
+          width: 100%;
+        }
+        input {
+          display: block;
+          margin: 30px 0 10px;
+          padding: 15px 20px;
+          border: 1px solid $bd-c1-primary;
+          border-radius: 50px;
+          background-color: $bg-transparent;
+          &::placeholder {
+            color: $text-c1-light;
+            text-align: center;
+          }
+          &:focus {
+            border: 1px solid #fff;
+            outline: none;
+          }
+          @media screen and (max-width: 992px) {
+            max-width: 100%;
+          }
+        }
+        button {
+          -webkit-box-shadow: 0 0 0 3em #fff inset;
+          box-shadow: 0 0 0 3em #fff inset;
+          transition: all 0.3s;
+          @include button(
+            $text-xs,
+            $text-semibold,
+            $text-c1-dark,
+            $bg-light,
+            15px 60px,
+            1px solid $bd-c1-primary,
+            50px
+          );
+          &:hover {
+            -webkit-box-shadow: 0 0 0 1px #fff inset;
+            box-shadow: 0 0 0 1px #fff inset;
+            background-color: $bg-c1-primary;
+          }
+          @media screen and (max-width: 992px) {
+            max-width: 100%;
+          }
+        }
+      }
+      @for $i from 0 through 3 {
+        .item-#{$i + 1} {
+          animation: fadeIn (1s * $i + 1);
+        }
+      }
+    }
+  }
+}
