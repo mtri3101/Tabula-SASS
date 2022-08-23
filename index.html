@@ -35,7 +35,7 @@
           <i class="fa-solid fa-bars"></i>
           <a href="#"><img src="./images/crest.png" alt="logo" /></a>
         </div>
-        <div class="header-item">
+        <div class="header-item ">
           <nav class="header-nav">
             <a href="http://tabula.bold-themes.com/wavy/">Home</a>
             <a href="#">About</a>
@@ -223,7 +223,6 @@
 
     <!-- Footer  -->
     <footer class="footer">
-      
       <div class="container">
         <div class="row">
           <div class="col item-1">
@@ -268,12 +267,17 @@
       </div>
     </footer>
 
-    <!-- WowJs  -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
-      integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+    <script>
+      var navSLide = function () {
+        var burger = document.querySelector(".fa-bars");
+        var nav = document.querySelector(".header-item");
+
+        burger.onclick = function () {
+          nav.classList.toggle("nav-active");
+        };
+      };
+
+      navSLide();
+    </script>
   </body>
 </html>
