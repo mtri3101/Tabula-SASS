@@ -1,7 +1,7 @@
 @import "./base/base.scss";
 @import "./abstract/variable.scss";
-@import "./abstract/keyframe.scss";
 @import "./abstract/mixin.scss";
+@import "./abstract/keyframe.scss";
 
 body {
   position: relative;
@@ -31,7 +31,7 @@ body {
         display: flex;
         align-items: center;
         background-color: $bg-light;
-        width: 100vw;
+        width: 100%;
       }
       .fa-bars {
         display: none;
@@ -220,7 +220,7 @@ body {
             text-align: center;
             h2 {
               margin-bottom: 10px;
-              @include text($text-xs, $text-semibold, $text-c1-primary);
+              @include text;
             }
             h1 {
               margin-bottom: 10px;
